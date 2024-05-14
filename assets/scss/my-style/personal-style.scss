@@ -1,26 +1,27 @@
-.personal-bg{
-    background-color:#181818 !important;
+.personal-bg {
+    background-color: #181818 !important;
 }
 
-.personal-border{
+.personal-border {
     border-top: 1px solid rgba(255, 255, 255, 0.197);
 }
 
 
-.favourite-song-bg{background: rgb(63,66,108);
-    background: linear-gradient(135deg, rgba(63,66,108,1) 7%, rgba(135,139,195,1) 33%, rgba(172,210,228,1) 75%, rgba(235,241,244,1) 93%);
-font-size: 0.6em;
+.favourite-song-bg {
+    background: rgb(63, 66, 108);
+    background: linear-gradient(135deg, rgba(63, 66, 108, 1) 7%, rgba(135, 139, 195, 1) 33%, rgba(172, 210, 228, 1) 75%, rgba(235, 241, 244, 1) 93%);
+    font-size: 0.6em;
 
 }
 
-.your-episode{
+.your-episode {
     background: #004537;
     font-size: 0.7em;
-    color:#149643 !important; 
+    color: #149643 !important;
 }
 
 
-.nome_amici{
+.nome_amici {
     font-size: 0.8rem;
 }
 
@@ -38,13 +39,15 @@ font-size: 0.6em;
     border-radius: 16px;
     padding: 1px;
     background-color: #000;
-  }
-  .logousername {
+}
+
+.logousername {
     color: #fff;
     font-size: 0.9em;
     margin-right: 8px;
-  }
-  .logofigure {
+}
+
+.logofigure {
     width: 25px;
     height: 25px;
     background-color: #2a2a2a;
@@ -53,13 +56,19 @@ font-size: 0.6em;
     margin-left: 2px;
     display: grid;
     place-items: center;
-  }
-  .logousername {
+}
+
+.logousername {
     color: #fff;
     font-size: 0.9em;
     margin-right: 8px;
-  }
-  .logo__expand-arrow {
+}
+
+.logo__expand-arrow {
     transform: rotateZ(180deg);
     margin-right: 8px;
-  }
+}
+
+.size_img {
+    height: 4rem;
+}

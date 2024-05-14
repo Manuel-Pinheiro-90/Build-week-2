@@ -8,13 +8,13 @@ const generateAlbumCards = function (album) {
     const row = document.getElementById('album-sera')
     
         const newCol = document.createElement('div')
-        newCol.classList.add('col-3', 'bg-primary', 'm-1', 'flex-grow-1', 'h-25', 'd-flex', "p-0")
+        newCol.classList.add('col-3', 'bg-primary', 'm-1','flex-grow-1', 'd-flex', "p-0", "size_img")
         
         newCol.innerHTML = `
-      <div class="container d-flex  w-75" onclick="redirectToPage('album.html?gundamId=${album.id}')>
+      <div class="d-flex" onclick="redirectToPage('album.html?gundamId=${album.id}')>
         <div class="row align-items-center">
           <div class="col-4">
-            <img src="${album.cover_medium}" class="img-fluid" alt="...">
+            <img src="${album.cover_medium}" class="h-100" alt="...">
           </div>
           <div class="col-8">
               <p class="card-text text-white" id="cardText">${album.title}</p>
