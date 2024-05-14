@@ -24,4 +24,43 @@
 
 .testo_amici {
   font-size: 0.7rem;
+}
+/* LOGO USER */
+.logouser {
+  border: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 32px;
+  border-radius: 16px;
+  padding: 1px;
+  background-color: #000;
+}
+
+.logousername {
+  color: #fff;
+  font-size: 0.9em;
+  margin-right: 8px;
+}
+
+.logofigure {
+  width: 25px;
+  height: 25px;
+  background-color: #2a2a2a;
+  border-radius: 50%;
+  margin-right: 8px;
+  margin-left: 2px;
+  display: grid;
+  place-items: center;
+}
+
+.logousername {
+  color: #fff;
+  font-size: 0.9em;
+  margin-right: 8px;
+}
+
+.logo__expand-arrow {
+  transform: rotateZ(180deg);
+  margin-right: 8px;
 }/*# sourceMappingURL=personal-style.css.map */
