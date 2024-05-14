@@ -17,6 +17,7 @@ const generateAlbumCards = function (album) {
           </div>
           <div class="col-8">
               <p class="card-text text-white" id="cardText">${album.title}</p>
+              <a href="album.html?artistId=${album.artist.id}" class="card-text text-white" id="cardText">${album.artist.name}</a>
               
           </div>
        </div>  
