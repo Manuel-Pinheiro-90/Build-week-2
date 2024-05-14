@@ -1,18 +1,5 @@
 
-// const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-// const appendAlert = (message, type) => {
-//   const wrapper = document.createElement('div')
-//   wrapper.innerHTML = [
-//     `<div class="alert alert-${type} alert-dismissible m-0" role="alert">`,
-//     `   <div>${message}</div>`,
-//     '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-//     '</div>'
-//   ].join('')
-
-//   alertPlaceholder.append(wrapper)
-// }
-  
-const albumArray = ["4603396", "513551092", "547520122", "119606", "508204251", "11428966"];
+const albumArray = ["423368", "513551092", "547520122", "119606", "508204251", "11428966"];
 
 
 
@@ -21,22 +8,19 @@ const generateAlbumCards = function (album) {
     const row = document.getElementById('album-sera')
     
         const newCol = document.createElement('div')
-        newCol.classList.add('col')
+        newCol.classList.add('col-3', 'bg-primary', 'm-1', 'flex-grow-1', 'h-25', 'd-flex', "p-0")
+        
         newCol.innerHTML = `
-      <div class="col-3" onclick="redirectToPage('album.html?gundamId=${album.id}')>
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="${album.cover_medium}" class="img-fluid rounded-start" alt="...">
+      <div class="container d-flex  w-75" onclick="redirectToPage('album.html?gundamId=${album.id}')>
+        <div class="row align-items-center">
+          <div class="col-4">
+            <img src="${album.cover_medium}" class="img-fluid" alt="...">
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <p class="card-text" id="cardText">${album.title}</p>
-            </div>
+          <div class="col-8">
+              <p class="card-text text-white" id="cardText">${album.title}</p>
           </div>
-        </div>
-      </div>
-      </div>
+       </div>
+       </div>
         `
         row.appendChild(newCol)
     
@@ -51,7 +35,7 @@ function getAlbumS(albums) {
 
 
 const getAlbum = function (id) {
-    console.log('https://striveschool-api.herokuapp.com/api/deezer/album/'+id)
+    
     fetch('https://striveschool-api.herokuapp.com/api/deezer/album/'+id
         // ,
         // {
@@ -62,8 +46,6 @@ const getAlbum = function (id) {
     )
         .then((response) => {
             if (response.ok) {
-                // const spin = document.getElementById('spinner')
-                // spin.classList.add('visually-hidden')
                 console.log(response)
                 return response.json()
 
@@ -84,10 +66,9 @@ const getAlbum = function (id) {
             generateAlbumCards(array)
         })
         .catch((err) => {
-            // appendAlert('Qualcosa è andato storto!! ' + err, 'warning')
             console.log('ERRORE!', err)
 
         })
 }
 
-generateAlbumCards(albumArray);
+getAlbumS(albumArray);
