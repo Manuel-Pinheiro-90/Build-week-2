@@ -11,16 +11,15 @@ const generateAlbumCards = function (album) {
         newCol.classList.add('col-3', 'bg-primary', 'm-1','flex-grow-1', 'd-flex', "p-0", "size_img")
         
         newCol.innerHTML = `
-      <div class="container d-flex p-0" onclick="redirectToPage('album.html?albumId=${album.id}')>
-        <div class="row">
+      <div class="container d-flex p-0" onclick="window.location.href=('album.html?albumId=${album.id}')">
           <div class="col-4">
             <img src="${album.cover_medium}" class="h-100" alt="...">
           </div>
           <div class="col-8">
               <p class="card-text text-white" id="cardText">${album.title}</p>
+              
           </div>
-       </div>
-       </div>
+       </div>  
         `
         row.appendChild(newCol)
     
@@ -36,14 +35,7 @@ function getAlbumS(albums) {
 
 const getAlbum = function (id) {
     
-    fetch('https://striveschool-api.herokuapp.com/api/deezer/album/'+id
-        // ,
-        // {
-        //     headers: {
-        //         Authorization: API_KEY,
-        //     },
-        // }
-    )
+    fetch('https://striveschool-api.herokuapp.com/api/deezer/album/'+id)
         .then((response) => {
             if (response.ok) {
                 console.log(response)
