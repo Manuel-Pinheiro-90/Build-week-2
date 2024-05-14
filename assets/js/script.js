@@ -1,9 +1,11 @@
 
+
+
+
+
+
+
 const albumArray = ["423368", "513551092", "547520122", "119606", "508204251", "11428966"];
-
-
-
-
 const generateAlbumCards = function (album) {
     const row = document.getElementById('album-sera')
     
