@@ -11,8 +11,8 @@ const generateAlbumCards = function (album) {
         newCol.classList.add('col-3', 'bg-primary', 'm-1','flex-grow-1', 'd-flex', "p-0", "size_img")
         
         newCol.innerHTML = `
-      <div class="d-flex" onclick="redirectToPage('album.html?gundamId=${album.id}')>
-        <div class="row align-items-center">
+      <div class="container d-flex p-0" onclick="redirectToPage('album.html?albumId=${album.id}')>
+        <div class="row">
           <div class="col-4">
             <img src="${album.cover_medium}" class="h-100" alt="...">
           </div>
