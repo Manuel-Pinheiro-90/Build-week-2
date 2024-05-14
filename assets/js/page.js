@@ -6,13 +6,13 @@ const generateArtistCards = function (artist) {
     const row2 = document.getElementById('ads-artist')
     
         const newCol2 = document.createElement('div')
-        newCol2.classList.add('col-3', 'bg-primary', 'm-1','flex-grow-1', 'd-flex', "p-0", "size_img")
+        newCol2.classList.add('col')
         newCol2.innerHTML = `
         <div class="card" style="width: 18rem;">
-       <img src="${artist.album.cover_medium}" class="card-img-top" alt="...">
+       <img src="${artist.data[0].album.cover_medium}" class="card-img-top" alt="...">
         <div class="card-body">
-        <p class="card-text text-white" id="cardText">${artist.artist.name}</p>
-       <p class="card-text">${artist.album.title}</p>
+        <p class="card-text" id="cardText">${artist.data[0].artist.name}</p>
+       <p class="card-text">${artist.data[0].album.title}</p>
        </div>
        </div>
         `
@@ -48,7 +48,7 @@ const getArtist = function (id) {
             }
         })
         .then((array) => {
-            console.log('ARRAY!', array)
+            console.log('ARRAY!Artisti', array)
 
             generateArtistCards(array)
         })
