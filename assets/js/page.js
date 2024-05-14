@@ -6,15 +6,15 @@ const generateArtistCards = function (artist) {
     const row2 = document.getElementById('ads-artist')
     
         const newCol2 = document.createElement('div')
-        newCol2.classList.add('col')
+        newCol2.classList.add('col' ,'p-1', 'd-flex')
         newCol2.innerHTML = `
-        <div class="card" style="width: 18rem;">
-       <img src="${artist.data[0].album.cover_medium}" class="card-img-top" alt="...">
-        <div class="card-body">
-        <p class="card-text" id="cardText">${artist.data[0].artist.name}</p>
-       <p class="card-text">${artist.data[0].album.title}</p>
-       </div>
-       </div>
+        <div class="card " onclick="window.location.href=('album.html?albumId=${artist.data[0].album.id}')" style="width: 18rem;">
+          <img src="${artist.data[0].album.cover_medium}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="artist.html?artistId=${artist.data[0].artist.id}" class="card-text" id="cardText">${artist.data[0].artist.name}</a>
+            <p class="card-text">${artist.data[0].album.title}</p>
+          </div>
+        </div>
         `
         row2.appendChild(newCol2)
     
