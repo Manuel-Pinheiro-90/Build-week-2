@@ -67,4 +67,10 @@
 
 .size_img {
   height: 4rem;
+}
+
+#sfondo_immagine {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }/*# sourceMappingURL=personal-style.css.map */
