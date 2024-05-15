@@ -10,17 +10,15 @@ const generateAlbumCards = function (album) {
     const row = document.getElementById('album-sera')
     
         const newCol = document.createElement('div')
-        newCol.classList.add('col-3', 'bg-primary', 'm-1','flex-grow-1', 'd-flex', "p-0", "size_img")
+        newCol.classList.add('col-3', 'bg-card-personal', 'm-1','flex-grow-1', 'd-flex', "p-0", "size_img")
         
         newCol.innerHTML = `
       <div class="container d-flex p-0" onclick="window.location.href=('album.html?albumId=${album.id}')">
           <div class="col-4">
             <img src="${album.cover_medium}" class="h-100" alt="...">
           </div>
-          <div class="col-8">
-              <p class="card-text text-white" id="cardText">${album.title}</p>
-              <a href="artist.html?artistId=${album.artist.id}" class="card-text text-white" id="cardText">${album.artist.name}</a>
-              
+          <div class="col-8 d-flex align-items-center">
+              <p class="card-text text-white font-personal" id="cardText">${album.title}</p>
           </div>
        </div>  
         `

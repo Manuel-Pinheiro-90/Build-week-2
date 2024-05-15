@@ -6,6 +6,16 @@
   border-top: 1px solid rgba(255, 255, 255, 0.197);
 }
 
+/* PERSONALIZZAZIONE BOTTONI */
+.button-personal {
+  background-color: rgba(0, 0, 0, 0.279) !important;
+}
+
+.button-personal:hover {
+  background-color: #000 !important;
+}
+
+/* ICONE DELLA NAV BAR A SX*/
 .favourite-song-bg {
   background: rgb(63, 66, 108);
   background: linear-gradient(135deg, rgb(63, 66, 108) 7%, rgb(135, 139, 195) 33%, rgb(172, 210, 228) 75%, rgb(235, 241, 244) 93%);
@@ -24,6 +34,12 @@
 
 .testo_amici {
   font-size: 0.7rem;
+}
+
+/* PARAGRAFI DELLA PLAYLIST */
+.playlist-sel p:hover {
+  color: white !important;
+  cursor: pointer;
 }
 
 .logouser {
@@ -67,4 +83,19 @@
 
 .size_img {
   height: 4rem;
+}
+
+/* PERSONALIZZAZIONE CARDS BUONASERA */
+.bg-card-personal {
+  background-color: #2D2D2D !important;
+  cursor: pointer;
+}
+
+.bg-card-personal:hover {
+  background-color: #4d4c4c !important;
+}
+
+.font-personal {
+  font-size: 0.8rem !important;
+  font-weight: 700;
 }/*# sourceMappingURL=personal-style.css.map */
