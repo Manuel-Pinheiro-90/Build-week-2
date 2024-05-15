@@ -125,7 +125,7 @@ const getArtist = function (id) {
 getArtistS(artistArray);
 getAlbumS(albumArray);
 
-const audioElement = new Audio('VideoGames.mp3');
+const audioElement = new Audio('./assets/js/VideoGames.mp3');
         const playPauseButton = document.querySelector('.play-pause');
         const progressBar = document.querySelector('#progress-bar');
         const progress = document.querySelector('#progress');
