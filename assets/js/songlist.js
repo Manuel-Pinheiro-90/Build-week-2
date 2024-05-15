@@ -1,4 +1,7 @@
 
+const addressBarContent = new URLSearchParams(location.search) 
+console.log(addressBarContent)
+const albumId = addressBarContent.get('albumId')
 
 const generateSongListCards = function (songArray) {
     const songrow = document.getElementById('songs-list')
@@ -16,11 +19,25 @@ const generateSongListCards = function (songArray) {
         ` 
         songrow.appendChild(songCol)
       })
+
+      const row4 = document.getElementById('title_album')
+        const newCol4 = document.createElement('div')
+        newCol4.classList.add('col-md-4')
+        newCol4.innerHTML = `
+                <img src="${songArray.cover_xl}" class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">${songArray.title}</h5>
+                  <p class="card-text"><img src="${songArray.artist.picture_small}" class="card-img" alt="..."> ${songArray.artist.name} ${songArray.release_date} ${num} ${songArray.duration}</p>
+                </div>
+        `
+        row4.appendChild(newCol4)
     }
 
 const getSongList = function () {
     
-    fetch('https://striveschool-api.herokuapp.com/api/deezer/album/75621062')
+    fetch('https://striveschool-api.herokuapp.com/api/deezer/album/'+ albumId)
         .then((response) => {
             if (response.ok) {
                 console.log(response)
