@@ -124,3 +124,65 @@ const getArtist = function (id) {
 
 getArtistS(artistArray);
 getAlbumS(albumArray);
+
+const audioElement = new Audio('VideoGames.mp3');
+        const playPauseButton = document.querySelector('.play-pause');
+        const progressBar = document.querySelector('#progress-bar');
+        const progress = document.querySelector('#progress');
+        const volumeBar = document.querySelector('#volume-progress-bar');
+        const volumeProgress = document.querySelector('#volume-progress');
+
+        // Avvia o metti in pausa la riproduzione audio al clic del pulsante Play/Pausa
+        playPauseButton.addEventListener('click', () => {
+            if (audioElement.paused) {
+                audioElement.play();
+                playPauseButton.classList.remove('fa-play');
+                playPauseButton.classList.add('fa-pause');
+            } else {
+                audioElement.pause();
+                playPauseButton.classList.remove('fa-pause');
+                playPauseButton.classList.add('fa-play');
+            }
+        });
+
+        // Aggiorna la posizione della canzone quando l'utente interagisce con la barra di avanzamento
+        progressBar.addEventListener('click', (e) => {
+            const clickX = e.clientX - progressBar.getBoundingClientRect().left;
+            const progressWidth = progressBar.offsetWidth;
+            const songPosition = clickX / progressWidth;
+            audioElement.currentTime = songPosition * audioElement.duration;
+        });
+
+        // Aggiorna il volume quando l'utente interagisce con la barra del volume
+        volumeBar.addEventListener('click', (e) => {
+            const clickX = e.clientX - volumeBar.getBoundingClientRect().left;
+            const volumeWidth = volumeBar.offsetWidth;
+            const volume = clickX / volumeWidth;
+            audioElement.volume = volume;
+        });
+
+        // Aggiorna la barra di avanzamento della canzone e del volume
+        audioElement.addEventListener('timeupdate', () => {
+            const currentTime = formatTime(audioElement.currentTime);
+            const duration = formatTime(audioElement.duration);
+            const progressWidth = (audioElement.currentTime / audioElement.duration) * 100;
+            const volumeWidth = audioElement.volume * 100;
+
+            document.getElementById('current-time').textContent = currentTime;
+            document.getElementById('duration').textContent = duration;
+            progress.style.width = `${progressWidth}%`;
+            volumeProgress.style.width = `${volumeWidth}%`;
+        });
+
+        // Aggiorna la barra del volume quando cambia il volume
+        audioElement.addEventListener('volumechange', () => {
+            const volumeWidth = audioElement.volume * 100;
+            volumeProgress.style.width = `${volumeWidth}%`;
+        });
+
+        // Funzione per formattare il tempo in formato mm:ss
+        function formatTime(time) {
+            const minutes = Math.floor(time / 60);
+            const seconds = Math.floor(time % 60);
+            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
