@@ -61,7 +61,7 @@ get_artist()
          const artistCol = document.createElement('tr')
          artistCol.innerHTML = `
          <th class="bg-transparent text-white-50" scope="row">${num}</th>
-         <td class="bg-transparent text-white-50"><img src="${song.album.cover}" alt=""></td>
+         <td class="bg-transparent text-white-50 w-25"><img src="${song.album.cover}" alt="" class="w-50"></td>
          <td class="bg-transparent text-white">${song.title}</td>
          <td class="bg-transparent text-white-50">${song.rank}</td>
          <td class="bg-transparent text-white-50">${song.duration}</td>`
@@ -72,7 +72,7 @@ get_artist()
 
  const getArtistList = function () {
 
-     fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=8`)
+     fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=12`)
          .then((response) => {
              if (response.ok) {
                  console.log(response)
