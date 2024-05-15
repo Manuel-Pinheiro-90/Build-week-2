@@ -313,3 +313,9 @@ footer i:hover{
 .volume-bar .progress-bar:hover .progress::after{
     --size: .8em;
 }
+
+#sfondo_immagine {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat ;
+}
