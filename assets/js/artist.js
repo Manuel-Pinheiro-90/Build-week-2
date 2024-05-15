@@ -27,6 +27,8 @@ const get_artist = () => {
             document.getElementById("sfondo_immagine").style.backgroundImage =`url(${url_img})`
             document.getElementById("nome_artista").innerText = artista.name
             document.getElementById("numero_ascoltatori").innerText = artista.nb_fan
+            document.getElementById("artista_nome").innerText = artista.name
+
         })
 }
 
@@ -58,11 +60,11 @@ get_artist()
          num++
          const artistCol = document.createElement('tr')
          artistCol.innerHTML = `
-         <th scope="row">${num}</th>
-         <td><img src="${song.album.cover}" alt=""></td>
-         <td>${song.title}</td>
-         <td>${song.rank}</td>
-         <td class="bg-transparent">${song.duration}</td>`
+         <th class="bg-transparent text-white-50" scope="row">${num}</th>
+         <td class="bg-transparent text-white-50"><img src="${song.album.cover}" alt=""></td>
+         <td class="bg-transparent text-white">${song.title}</td>
+         <td class="bg-transparent text-white-50">${song.rank}</td>
+         <td class="bg-transparent text-white-50">${song.duration}</td>`
 
          artistrow.appendChild(artistCol)
      })

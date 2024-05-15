@@ -109,7 +109,7 @@
       </nav>
       <!----------main----------------------------------------------------------------------------->
       <main class="col-12   col-md-7 mt-4">
-        <div  id="sfondo_immagine">
+        <div id="sfondo_immagine">
           <div class="d-flex justify-content-between">
             <div>
               <button type="button" class="btn m-0 p-0 me-3" data-bs-target="#carouselExampleInterval"
@@ -159,21 +159,39 @@
             <p class="" id="numero_ascoltatori"></p>
           </div>
         </div>
-        <div class="container">
-          <table class="table">
-            <thead>
-              <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="songs-list">
 
-            </tbody>
-          </table>
+        <div>
+          
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-7">
+              <!-- prima colonna-->
+              <h4 class="text-white">Popolari</h4>
+              <table class="table">
+                <thead>
+                </thead>
+                <tbody id="songs-list">
+
+                </tbody>
+              </table>
+            </div>
+            <div class="col-5">
+              <!-- seconda colonna-->
+              <h4 class="text-white">Brani che ti piacciono</h4>
+              <div class="row">
+                <div class="col-5 w-25">
+                  <img src="./Assets_esercizio/imgs/main/image-15.jpg" alt="" class="w-100 rounded-5">
+                </div>
+                <div class="col-7">
+                  <h6 class="text-white">Hai messo Mi piace a 11 brani</h6>
+                  <p id="artista_nome" class="text-white-50"></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </main>
 
