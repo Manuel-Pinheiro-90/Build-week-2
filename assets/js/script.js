@@ -63,7 +63,7 @@ const getAlbum = function (id) {
 /* CARDS SEZIONE ALTRO CHE TI PIACE */
 
 
-const artistArray = ["2059","1342","1125","900","226","1154"];
+const artistArray = ["2059","1342","1125","900","226","1154","4138","3968561"];
 const generateArtistCards = function (artist) {
     const row2 = document.getElementById('ads-artist')
     
