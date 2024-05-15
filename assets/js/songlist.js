@@ -1,32 +1,26 @@
-const link = "";
-const generateSongListCards = function (song) {
-    const row3 = document.getElementById('songs-list')
-    
-        const newCol3 = document.createElement('div')
-        newCol3.classList.add('col' ,'p-1', 'd-flex')
-        newCol3.innerHTML = `
-        <tr>
-        <th scope="row">#</th>
-        <td>${song.data[0].album.cover_medium}</td>
-        <td>${song.data[0].album.cover_medium}</td>
-        <td>${song.data[0].album.cover_medium}</td>
-        </tr>
-        `
-        row3.appendChild(newCol3)
-    
-}
-
-function getSongListS(song) {
-    song.forEach(song => {
-        
-        getSongList(song);
-    });
-}
 
 
-const getSongList = function (id) {
+const generateSongListCards = function (songArray) {
+    const songrow = document.getElementById('songs-list')
+    const french = songArray.tracks.data
+    console.log(french)
+    let num = 0
+    french.forEach((song) => {
+        num++
+        const songCol = document.createElement('tr')
+        songCol.innerHTML =`
+        <th scope="row">${num}</th>
+        <td>${song.title}</td>
+        <td>${song.rank}</td>
+        <td>${song.duration}</td>
+        ` 
+        songrow.appendChild(songCol)
+      })
+    }
+
+const getSongList = function () {
     
-    fetch('https://striveschool-api.herokuapp.com/api/deezer/artist/'+ id + '/top?limit=1')
+    fetch('https://striveschool-api.herokuapp.com/api/deezer/album/75621062')
         .then((response) => {
             if (response.ok) {
                 console.log(response)
@@ -53,4 +47,4 @@ const getSongList = function (id) {
 
         })
 }
-getSongListS(songArray);
+getSongList();
