@@ -116,11 +116,13 @@
 /* PERSONALIZZAZIONE CARDS BUONASERA */
 .bg-card-personal{
     background-color: #2D2D2D !important;
-    cursor: pointer;
 }
 
 .bg-card-personal:hover{
     background-color: #4d4c4c !important;
+    transition: 0.3s;
+    cursor: pointer;
+
 }
 
 .font-personal{
@@ -130,14 +132,18 @@
 
 /* PERSONALIZZAZIONE CARDS ALTRO CHE TI PIACE */
 
-.personal-card{
-    background-color: #171717 !important;
+.card-personal{
+    background-color: #2D2D2D !important;
+    border-radius: 0.3rem !important;
+    padding: 1rem !important;
+    position: relative;
+    transition: all 0.4s;
+    cursor: pointer;
 }
 
-.personal-card:hover{
-    background-color:  #4d4c4c !important;
+.card-personal:hover{
+    background-color:#4d4c4c !important ;
 }
-
 
 .link-personal{
     text-decoration: none !important;

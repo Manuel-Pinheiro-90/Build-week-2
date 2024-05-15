@@ -68,11 +68,13 @@ const generateArtistCards = function (artist) {
     const row2 = document.getElementById('ads-artist')
     
         const newCol2 = document.createElement('div')
-        newCol2.classList.add('col-3' ,'p-1', 'd-flex')
+        newCol2.classList.add('p-1', 'd-flex','flex-column','align-items-center')
         newCol2.innerHTML = `
-        <div class="card" onclick="window.location.href=('album.html?albumId=${artist.data[0].album.id}')">
-          <img src="${artist.data[0].album.cover_medium}" class="card-img-top" alt="...">
-          <div class="card-body personal-card">
+        <div class="w-100 h-100 card-personal" onclick="window.location.href=('album.html?albumId=${artist.data[0].album.id}')">
+        <div class="img-holder">
+          <img src="${artist.data[0].album.cover_medium}" class="w-100 h-100 object-fit-cover rounded-2" alt="...">
+        </div>
+          <div class="text mt-1 d-flex flex-column justify-content-between">
             <a href="artist.html?artistId=${artist.data[0].artist.id}" class="card-text link-personal" id="cardText">${artist.data[0].artist.name}</a>
             <p class="card-text text-light fs-personal">${artist.data[0].album.title}</p>
           </div>
