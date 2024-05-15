@@ -1,9 +1,4 @@
-
-
-
-
-
-
+/* CARDS SEZIONE BUONASERA */
 
 const albumArray = ["423368", "513551092", "547520122", "119606", "508204251", "11428966"];
 const generateAlbumCards = function (album) {
@@ -65,6 +60,7 @@ const getAlbum = function (id) {
 }
 
 
+/* CARDS SEZIONE ALTRO CHE TI PIACE */
 
 
 const artistArray = ["2059","1342","1125","900","226","1154"];
@@ -72,13 +68,13 @@ const generateArtistCards = function (artist) {
     const row2 = document.getElementById('ads-artist')
     
         const newCol2 = document.createElement('div')
-        newCol2.classList.add('col' ,'p-1', 'd-flex')
+        newCol2.classList.add('col-3' ,'p-1', 'd-flex')
         newCol2.innerHTML = `
-        <div class="card " onclick="window.location.href=('album.html?albumId=${artist.data[0].album.id}')" style="width: 18rem;">
+        <div class="card" onclick="window.location.href=('album.html?albumId=${artist.data[0].album.id}')">
           <img src="${artist.data[0].album.cover_medium}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <a href="artist.html?artistId=${artist.data[0].artist.id}" class="card-text" id="cardText">${artist.data[0].artist.name}</a>
-            <p class="card-text">${artist.data[0].album.title}</p>
+          <div class="card-body personal-card">
+            <a href="artist.html?artistId=${artist.data[0].artist.id}" class="card-text link-personal" id="cardText">${artist.data[0].artist.name}</a>
+            <p class="card-text text-light fs-personal">${artist.data[0].album.title}</p>
           </div>
         </div>
         `
