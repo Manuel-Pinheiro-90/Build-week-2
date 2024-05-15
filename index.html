@@ -11,6 +11,13 @@
 
     <link rel="stylesheet" href="./assets/scss/bootstrap.css" />
     <link rel="stylesheet" href="./assets/scss/my-style/personal-style.css" />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+            integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
   </head>
 
   <body class="personal-bg">
@@ -38,18 +45,18 @@
                     </a>
                   </li>
 
-                  <li class="nav-item d-flex align-items-center">
+                  <li class="nav-item d-flex align-items-center personal-list">
                     <a class="nav-link active link-light fw-medium" href="#"
                       ><i class="bi bi-house-door-fill text-light me-1"></i>
                       Home
                     </a>
                   </li>
-                  <li class="nav-item d-flex align-items-center">
+                  <li class="nav-item d-flex align-items-center personal-list">
                     <a class="nav-link text-white-50 fw-medium" href="#"
                       ><i class="bi bi-search text-white-50 me-1"></i> Cerca</a
                     >
                   </li>
-                  <li class="nav-item d-flex align-items-center">
+                  <li class="nav-item d-flex align-items-center personal-list">
                     <a class="nav-link text-white-50 fw-medium" href="#">
                       <i class="bi bi-collection-play text-white-50 me-1"></i>
                       La tua libreria
@@ -60,21 +67,22 @@
               <!--col-2--------------------------------------------------->
               <div class="col">
                 <ul class="nav flex-column border-bottom border-dark">
-                  <li class="nav-item d-flex align-items-center">
+                  <li class="nav-item d-flex align-items-center personal-list">
                     <a class="nav-link text-white-50 fw-medium" href="#"
                       ><i class="bi bi-plus-square-fill text-white-50 me-1"></i>
                       Crea Playlist
                     </a>
                   </li>
-                  <li class="nav-item d-flex align-items-center">
+                  <li class="nav-item d-flex align-items-center personal-list">
                     <a class="nav-link text-white-50 fw-medium" href="#">
                       <i
-                        class="bi bi-suit-heart-fill text-white-50 text-center rounded-1 px-1 py-1 favourite-song-bg"
+                        class="bi bi-suit-heart-fill text-white-50 text-center rounded-1 px-1 py-1 favourite-song-bg me-1"
+                        
                       ></i>
                       Brani che ti piacciono
                     </a>
                   </li>
-                  <li class="nav-item d-flex align-items-center mb-3">
+                  <li class="nav-item d-flex align-items-center mb-3 personal-list">
                     <a class="nav-link text-white-50 fw-medium" href="#"
                       ><i
                         class="bi bi-bookmark-fill text-white-50 me-1 your-episode px-1 py-1"
@@ -86,7 +94,7 @@
               </div>
               <!--col-3------------------------------------------>
               <div class="col">
-                <div class="text-white-50 p-3">
+                <div class="text-white-50 p-3 playlist-sel">
                   <p>early stage emily syndrome (sett-ott 2022)</p>
                   <p>Be The Young</p>
                   <p>.." cit. Kimiko (lug-ago 2022)</p>
@@ -115,77 +123,77 @@
         </nav>
         <main class="col-12   col-md-7 mt-4">
           <!-- CAROSELLO CON CARDS -->
-          <div class="d-flex justify-content-between">
-            <div>
-              <button
-                type="button"
-                class="btn m-0 p-0 me-3"
-                data-bs-target="#carouselExampleInterval"
-                data-bs-slide="prev"
-              >
-                <span
-                  class="carousel-control-prev-icon bg-black rounded-5"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button
-                type="button"
-                class="btn m-0 p-0"
-                data-bs-target="#carouselExampleInterval"
-                data-bs-slide="next"
-              >
-                <span
-                  class="carousel-control-next-icon bg-black rounded-5"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-            <!-- ---------------  userrrr  -->
-            <div class="dropdown">
-              <button class="logouser dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <div class="logofigure">
-                  <svg
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 18 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                    data-testid="user-icon"
-                  >
-                    <path
-                      d="M15.216 13.717L12 11.869C11.823 11.768 11.772 11.607 11.757 11.521C11.742 11.435 11.737 11.267 11.869 11.111L13.18 9.57401C14.031 8.58001 14.5 7.31101 14.5 6.00001V5.50001C14.5 3.98501 13.866 2.52301 12.761 1.48601C11.64 0.435011 10.173 -0.0879888 8.636 0.0110112C5.756 0.198011 3.501 2.68401 3.501 5.67101V6.00001C3.501 7.31101 3.97 8.58001 4.82 9.57401L6.131 11.111C6.264 11.266 6.258 11.434 6.243 11.521C6.228 11.607 6.177 11.768 5.999 11.869L2.786 13.716C1.067 14.692 0 16.526 0 18.501V20H1V18.501C1 16.885 1.874 15.385 3.283 14.584L6.498 12.736C6.886 12.513 7.152 12.132 7.228 11.691C7.304 11.251 7.182 10.802 6.891 10.462L5.579 8.92501C4.883 8.11101 4.499 7.07201 4.499 6.00001V5.67101C4.499 3.21001 6.344 1.16201 8.699 1.00901C9.961 0.928011 11.159 1.35601 12.076 2.21501C12.994 3.07601 13.5 4.24301 13.5 5.50001V6.00001C13.5 7.07201 13.117 8.11101 12.42 8.92501L11.109 10.462C10.819 10.803 10.696 11.251 10.772 11.691C10.849 12.132 11.115 12.513 11.503 12.736L14.721 14.585C16.127 15.384 17.001 16.884 17.001 18.501V20H18.001V18.501C18 16.526 16.932 14.692 15.216 13.717Z"
-                      fill="#fff"
-                    ></path>
-                  </svg>
-                </div>
-                <span class="logousername">user</span>
-                <div class="logoexpand-arrow">
-                  <svg role="img" height="16" width="16" viewBox="0 0 16 16">
-                    <path d="M13 10L8 4.206 3 10z" fill="#fff"></path>
-                  </svg>
-                </div>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Account</a></li>
-                  <li><a class="dropdown-item" href="#">Profilo</a></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Sessione Privata</a>
-                  </li>
-                  <li><a class="dropdown-item" href="#">Impostazioni</a></li>
-                  <li><a class="dropdown-item" href="#">Esci</a></li>
-                </ul>
-              </button>
-            </div>
-          </div>
           <div
             id="carouselExampleInterval"
             class="carousel slide"
             data-bs-ride="carousel"
           >
+            <div class="d-flex justify-content-between">
+              <div>
+                <button
+                  type="button"
+                  class="btn m-0 p-0 me-3"
+                  data-bs-target="#carouselExampleInterval"
+                  data-bs-slide="prev"
+                >
+                  <span
+                    class="carousel-control-prev-icon button-personal rounded-5"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                  type="button"
+                  class="btn m-0 p-0"
+                  data-bs-target="#carouselExampleInterval"
+                  data-bs-slide="next"
+                >
+                  <span
+                    class="carousel-control-next-icon button-personal rounded-5"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              <!-- ---------------  userrrr  -->
+              <div class="dropdown">
+                <button class="logouser dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="logofigure">
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 18 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                      data-testid="user-icon"
+                    >
+                      <path
+                        d="M15.216 13.717L12 11.869C11.823 11.768 11.772 11.607 11.757 11.521C11.742 11.435 11.737 11.267 11.869 11.111L13.18 9.57401C14.031 8.58001 14.5 7.31101 14.5 6.00001V5.50001C14.5 3.98501 13.866 2.52301 12.761 1.48601C11.64 0.435011 10.173 -0.0879888 8.636 0.0110112C5.756 0.198011 3.501 2.68401 3.501 5.67101V6.00001C3.501 7.31101 3.97 8.58001 4.82 9.57401L6.131 11.111C6.264 11.266 6.258 11.434 6.243 11.521C6.228 11.607 6.177 11.768 5.999 11.869L2.786 13.716C1.067 14.692 0 16.526 0 18.501V20H1V18.501C1 16.885 1.874 15.385 3.283 14.584L6.498 12.736C6.886 12.513 7.152 12.132 7.228 11.691C7.304 11.251 7.182 10.802 6.891 10.462L5.579 8.92501C4.883 8.11101 4.499 7.07201 4.499 6.00001V5.67101C4.499 3.21001 6.344 1.16201 8.699 1.00901C9.961 0.928011 11.159 1.35601 12.076 2.21501C12.994 3.07601 13.5 4.24301 13.5 5.50001V6.00001C13.5 7.07201 13.117 8.11101 12.42 8.92501L11.109 10.462C10.819 10.803 10.696 11.251 10.772 11.691C10.849 12.132 11.115 12.513 11.503 12.736L14.721 14.585C16.127 15.384 17.001 16.884 17.001 18.501V20H18.001V18.501C18 16.526 16.932 14.692 15.216 13.717Z"
+                        fill="#fff"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span class="logousername">user</span>
+                  <div class="logoexpand-arrow">
+                    <svg role="img" height="16" width="16" viewBox="0 0 16 16">
+                      <path d="M13 10L8 4.206 3 10z" fill="#fff"></path>
+                    </svg>
+                  </div>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Account</a></li>
+                    <li><a class="dropdown-item" href="#">Profilo</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Sessione Privata</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Impostazioni</a></li>
+                    <li><a class="dropdown-item" href="#">Esci</a></li>
+                  </ul>
+                </button>
+              </div>
+            </div>
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="10000">
-                <div class="card mb-3 bg-secondary-subtle">
+                <div class="card mb-3 bg-dark bg-gradient">
                   <div class="row g-0">
                     <div class="col-md-4">
                       <img
@@ -194,19 +202,21 @@
                         alt="imgCopertina"
                       />
                     </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                          This is a wider card with supporting text below as a
-                          natural lead-in to additional content. This content is
-                          a little bit longer.
+                    <div class="col-md-8 d-flex">
+                      <div class="card-body d-flex flex-column">
+                        <h1 class="card-title text-light fs-tile">CVLT</h1>
+                        <p class="card-text text-light">
+                        Salmo,Noyz Narcos  
                         </p>
                         <p class="card-text">
-                          <small class="text-body-secondary"
-                            >Last updated 3 mins ago</small
+                          <small class="text-light"
+                            >Ascolta il nuovo album di Salmo e Noyz Narcos</small
                           >
                         </p>
+                        <div>
+                        <button class="btn btn-success rounded-5">Play</button>
+                        <button class="btn btn-dark rounded-5">Salva</button>
+                      </div>
                       </div>
                     </div>
                   </div>
@@ -214,7 +224,7 @@
               </div>
 
               <div class="carousel-item" data-bs-interval="2000">
-                <div class="card mb-3 bg-secondary-subtle">
+                <div class="card mb-3 bg-dark bg-gradient">
                   <div class="row g-0">
                     <div class="col-md-4">
                       <img
@@ -225,24 +235,26 @@
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                          This is a wider card with supporting text below as a
-                          natural lead-in to additional content. This content is
-                          a little bit longer.
+                        <h1 class="card-title text-light fs-tile">CVLT</h1>
+                        <p class="card-text text-light">
+                        Salmo,Noyz Narcos  
                         </p>
                         <p class="card-text">
-                          <small class="text-body-secondary"
-                            >Last updated 3 mins ago</small
+                          <small class="text-light"
+                            >Ascolta il nuovo album di Salmo e Noyz Narcos</small
                           >
                         </p>
+                        <div>
+                        <button class="btn btn-success rounded-5">Play</button>
+                        <button class="btn btn-dark rounded-5">Salva</button>
                       </div>
                     </div>
                   </div>
                 </div>
+                </div>
               </div>
               <div class="carousel-item">
-                <div class="card mb-3 bg-secondary-subtle">
+                <div class="card mb-3 bg-dark bg-gradient">
                   <div class="row g-0">
                     <div class="col-md-4">
                       <img
@@ -253,26 +265,27 @@
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                          This is a wider card with supporting text below as a
-                          natural lead-in to additional content. This content is
-                          a little bit longer.
+                        <h1 class="card-title text-light fs-tile">CVLT</h1>
+                        <p class="card-text text-light">
+                        Salmo,Noyz Narcos  
                         </p>
                         <p class="card-text">
-                          <small class="text-body-secondary"
-                            >Last updated 3 mins ago</small
+                          <small class="text-light"
+                            >Ascolta il nuovo album di Salmo e Noyz Narcos</small
                           >
                         </p>
+                        <div>
+                        <button class="btn btn-success rounded-5">Play</button>
+                        <button class="btn btn-dark rounded-5">Salva</button>
                       </div>
                     </div>
-                  </div>
+                    </div>
                 </div>
               </div>
             </div>
           </div>
           <!-- SEZIONE BUONASERA -->
-          <section>
+          <section class="mb-4">
             <div class="container-fluid">
               <h4 class="text-light">Buonasera</h4>
             </div>
@@ -283,7 +296,7 @@
             </div>
           </section>
           <!-- SEZIONE PLAYLIST -->
-          <section>
+          <section class="mb-5">
             <div class="container-fluid">
               <h4 class="text-light">Altro di ciò che ti piace</h4>
             </div>
@@ -383,11 +396,51 @@
     </div>
     <!-------------------------------------------------Player---------------------------------------------------------------------->
     <footer class="fixed-bottom">
-      <nav class="d-flex navbar personal-border personal-bg z-1">
-        <div class="container-fluid">
-          <a class="navbar-brand text-light" href="#">Navbar</a>
+      <div class="music-player">
+        <div class="song-bar">
+            <div class="song-infos">
+                <div class="image-container">
+                    <img src="https://d2y6mqrpjbqoe6.cloudfront.net/image/upload/f_auto,q_auto/media/library-400/216_636967437355378335Your_Lie_Small_hq.jpg" alt="" />
+                </div>
+                <div class="song-description">
+                    <p class="title">
+                        Watashitachi wa Sou Yatte Ikite Iku Jinshu na no
+                    </p>
+                    <p class="artist">Masaru Yokoyama</p>
+                </div>
+            </div>
+            <div class="icons">
+                <i class="far fa-heart"></i>
+                <i class="fas fa-compress"></i>
+            </div>
         </div>
-      </nav>
+        <div class="progress-controller">
+            <div class="control-buttons">
+                <i class="fas fa-random"></i>
+                <i class="fas fa-step-backward"></i>
+                <i class="play-pause fas fa-play"></i>
+                <i class="fas fa-step-forward"></i>
+                <i class="fas fa-undo-alt"></i>
+            </div>
+            <div class="progress-container">
+                <span>0:49</span>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <span>3:15</span>
+            </div>
+        </div>
+        <div class="other-features">
+            <i class="fas fa-list-ul"></i>
+            <i class="fas fa-desktop"></i>
+            <div class="volume-bar">
+                <i class="fas fa-volume-down"></i>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     </footer>
 
     <script

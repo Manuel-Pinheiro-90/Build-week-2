@@ -1,26 +1,19 @@
-
-
-
-
-
-
+/* CARDS SEZIONE BUONASERA */
 
 const albumArray = ["423368", "513551092", "547520122", "119606", "508204251", "11428966"];
 const generateAlbumCards = function (album) {
     const row = document.getElementById('album-sera')
     
         const newCol = document.createElement('div')
-        newCol.classList.add('col-3', 'bg-primary', 'm-1','flex-grow-1', 'd-flex', "p-0", "size_img")
+        newCol.classList.add('col-3', 'bg-card-personal', 'm-1','flex-grow-1', 'd-flex', "p-0", "size_img")
         
         newCol.innerHTML = `
       <div class="container d-flex p-0" onclick="window.location.href=('album.html?albumId=${album.id}')">
           <div class="col-4">
             <img src="${album.cover_medium}" class="h-100" alt="...">
           </div>
-          <div class="col-8">
-              <p class="card-text text-white" id="cardText">${album.title}</p>
-              <a href="artist.html?artistId=${album.artist.id}" class="card-text text-white" id="cardText">${album.artist.name}</a>
-              
+          <div class="col-8 d-flex align-items-center">
+              <p class="card-text text-white font-personal" id="cardText">${album.title}</p>
           </div>
        </div>  
         `
@@ -67,20 +60,23 @@ const getAlbum = function (id) {
 }
 
 
+/* CARDS SEZIONE ALTRO CHE TI PIACE */
 
 
-const artistArray = ["2059","1342","1125","900","226","1154"];
+const artistArray = ["2059","1342","1125","900","226","1154","4138","3968561","542","429675"];
 const generateArtistCards = function (artist) {
     const row2 = document.getElementById('ads-artist')
     
         const newCol2 = document.createElement('div')
-        newCol2.classList.add('col' ,'p-1', 'd-flex')
+        newCol2.classList.add('p-1', 'd-flex','flex-column','align-items-center')
         newCol2.innerHTML = `
-        <div class="card " onclick="window.location.href=('album.html?albumId=${artist.data[0].album.id}')" style="width: 18rem;">
-          <img src="${artist.data[0].album.cover_medium}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <a href="artist.html?artistId=${artist.data[0].artist.id}" class="card-text" id="cardText">${artist.data[0].artist.name}</a>
-            <p class="card-text">${artist.data[0].album.title}</p>
+        <div class="w-100 h-100 card-personal" onclick="window.location.href=('album.html?albumId=${artist.data[0].album.id}')">
+        <div class="img-holder">
+          <img src="${artist.data[0].album.cover_medium}" class="w-100 h-100 object-fit-cover rounded-2" alt="...">
+        </div>
+          <div class="text mt-1 d-flex flex-column justify-content-between">
+            <a href="artist.html?artistId=${artist.data[0].artist.id}" class="card-text link-personal" id="cardText">${artist.data[0].artist.name}</a>
+            <p class="card-text text-light fs-personal">${artist.data[0].album.title}</p>
           </div>
         </div>
         `
@@ -128,3 +124,65 @@ const getArtist = function (id) {
 
 getArtistS(artistArray);
 getAlbumS(albumArray);
+
+const audioElement = new Audio('VideoGames.mp3');
+        const playPauseButton = document.querySelector('.play-pause');
+        const progressBar = document.querySelector('#progress-bar');
+        const progress = document.querySelector('#progress');
+        const volumeBar = document.querySelector('#volume-progress-bar');
+        const volumeProgress = document.querySelector('#volume-progress');
+
+        // Avvia o metti in pausa la riproduzione audio al clic del pulsante Play/Pausa
+        playPauseButton.addEventListener('click', () => {
+            if (audioElement.paused) {
+                audioElement.play();
+                playPauseButton.classList.remove('fa-play');
+                playPauseButton.classList.add('fa-pause');
+            } else {
+                audioElement.pause();
+                playPauseButton.classList.remove('fa-pause');
+                playPauseButton.classList.add('fa-play');
+            }
+        });
+
+        // Aggiorna la posizione della canzone quando l'utente interagisce con la barra di avanzamento
+        progressBar.addEventListener('click', (e) => {
+            const clickX = e.clientX - progressBar.getBoundingClientRect().left;
+            const progressWidth = progressBar.offsetWidth;
+            const songPosition = clickX / progressWidth;
+            audioElement.currentTime = songPosition * audioElement.duration;
+        });
+
+        // Aggiorna il volume quando l'utente interagisce con la barra del volume
+        volumeBar.addEventListener('click', (e) => {
+            const clickX = e.clientX - volumeBar.getBoundingClientRect().left;
+            const volumeWidth = volumeBar.offsetWidth;
+            const volume = clickX / volumeWidth;
+            audioElement.volume = volume;
+        });
+
+        // Aggiorna la barra di avanzamento della canzone e del volume
+        audioElement.addEventListener('timeupdate', () => {
+            const currentTime = formatTime(audioElement.currentTime);
+            const duration = formatTime(audioElement.duration);
+            const progressWidth = (audioElement.currentTime / audioElement.duration) * 100;
+            const volumeWidth = audioElement.volume * 100;
+
+            document.getElementById('current-time').textContent = currentTime;
+            document.getElementById('duration').textContent = duration;
+            progress.style.width = `${progressWidth}%`;
+            volumeProgress.style.width = `${volumeWidth}%`;
+        });
+
+        // Aggiorna la barra del volume quando cambia il volume
+        audioElement.addEventListener('volumechange', () => {
+            const volumeWidth = audioElement.volume * 100;
+            volumeProgress.style.width = `${volumeWidth}%`;
+        });
+
+        // Funzione per formattare il tempo in formato mm:ss
+        function formatTime(time) {
+            const minutes = Math.floor(time / 60);
+            const seconds = Math.floor(time % 60);
+            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
