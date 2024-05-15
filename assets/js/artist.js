@@ -50,19 +50,19 @@ get_artist()
 
 
 
- const generateSongListCards = function (artistArray) {
+ const generateSongListCards = function (songsArray) {
      const artistrow = document.getElementById('songs-list')
-     const french = artistArray.tracks.data
-     console.log(french)
+     let canzone = songsArray.data
      let num = 0
-     french.forEach((artist) => {
+     canzone.forEach((song) => {
          num++
          const artistCol = document.createElement('tr')
          artistCol.innerHTML = `
          <th scope="row">${num}</th>
-         <td>${artist.title}</td>
-         <td>${artist.rank}</td>
-         <td>${artist.duration}</td>`
+         <td><img src="${song.album.cover}" alt=""></td>
+         <td>${song.title}</td>
+         <td>${song.rank}</td>
+         <td class="bg-transparent">${song.duration}</td>`
 
          artistrow.appendChild(artistCol)
      })
@@ -70,7 +70,7 @@ get_artist()
 
  const getArtistList = function () {
 
-     fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=50`)
+     fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=8`)
          .then((response) => {
              if (response.ok) {
                  console.log(response)
