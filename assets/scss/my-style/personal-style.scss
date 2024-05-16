@@ -43,6 +43,8 @@
 /* PARAGRAFI DELLA PLAYLIST */
 .playlist-sel p:hover{
     color:white !important;
+    background-color: #2D2D2D !important;
+    transition: 0.3s;
     cursor: pointer;
 }
 
@@ -65,8 +67,8 @@
 
 /* CAROSELLO */
 
-.fs-tile{
-    font-size: 5em!important;
+.fs-title{
+    font-size: 3em!important;
 }
 
 // User Logo
@@ -150,6 +152,11 @@
     color: white !important;
     font-weight: 700;
 }
+.link-personal:hover{
+    text-decoration: underline !important;
+    transition: all 0,4s;
+}
+
 .fs-personal{
     margin-top: 10px;
     margin-bottom: 10px;
