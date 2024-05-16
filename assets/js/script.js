@@ -12,7 +12,7 @@ const generateAlbumCards = function (album) {
 
     const newCol = document.createElement("div");
     newCol.classList.add(
-        "col-3",
+        // "col",
         "bg-card-personal",
         "m-1",
         "flex-grow-1",
