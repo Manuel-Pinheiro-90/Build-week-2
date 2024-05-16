@@ -88,6 +88,12 @@ const generateArtistCards = function (artist) {
         `
     row2.appendChild(newCol2)
 
+
+}
+
+
+const generateCarouselCards = function (artist) {
+
     carosel_number++
     const get_carosel = document.getElementById("carosello_princ")
     const card_carosel = document.createElement("div")
@@ -99,7 +105,7 @@ const generateArtistCards = function (artist) {
         card_carosel.classList.add("carousel-item")
         console.log(carosel_number)
     }
-    card_carosel.setAttribute("data-bs-interval",'10000')
+    card_carosel.setAttribute("data-bs-interval", '10000')
 
     card_carosel.innerHTML = `
     <div class="card mb-3 bg-dark bg-gradient">
@@ -110,15 +116,15 @@ const generateArtistCards = function (artist) {
                   </div>
                   <div class="col-md-8 d-flex">
                     <div class="card-body d-flex flex-column">
-                      <h1 class="card-title text-light fs-tile">${artist.data[0].album.title}</h1>
+                      <h1 class="card-title text-light fs-title">${artist.data[0].title_short}</h1>
                       <p class="card-text text-light">
                         ${artist.data[0].artist.name}
                       </p>
                       <p class="card-text">
-                        <small class="text-light">Ascolta il nuovo album di ${artist.data[0].artist.name}</small>
+                        <small class="text-light">Ascolta ${artist.data[0].title_short} dall'album: ${artist.data[0].album.title}</small>
                       </p>
                       <div>
-                        <button class="btn btn-success rounded-5">Play</button>
+                        <button class='btn btn-success rounded-5 play${carosel_number}'>Play</button>
                         <button class="btn btn-dark rounded-5">Salva</button>
                       </div>
                     </div>
@@ -126,16 +132,33 @@ const generateArtistCards = function (artist) {
                 </div>
               </div>
     `
+    // onclick = "autoStart(${artist.data[0].album.title},${artist.data[0].artist.name},${artist.data[0].album.cover_small},${artist.data[0].preview})"
     get_carosel.appendChild(card_carosel)
+
+
+    addplayerlisten(artist, carosel_number)
+
+
 }
+
 
 function getArtistS(artist) {
     artist.forEach(artist => {
 
         getArtist(artist);
     });
-}
 
+
+}
+function addplayerlisten(artist, number) {
+    var playeray = document.getElementsByClassName('play' + number);
+    var playe = playeray[0];
+    console.log(playe);
+    playe.addEventListener("click", function () {
+
+        autoStart(artist);
+    });
+}
 
 const getArtist = function (id) {
 
@@ -158,8 +181,10 @@ const getArtist = function (id) {
         })
         .then((array) => {
             console.log('ARRAY!Artisti', array)
-
             generateArtistCards(array)
+            generateCarouselCards(array)
+
+
         })
         .catch((err) => {
             console.log('ERRORE!', err)
@@ -170,12 +195,32 @@ const getArtist = function (id) {
 getArtistS(artistArray);
 getAlbumS(albumArray);
 
-const audioElement = new Audio('./assets/js/VideoGames.mp3');
+function autoStart(array) {
+    if (audioElement) {
+        audioElement.pause(); // Pause the current audio
+        audioElement.remove(); // Remove the audio element from the DOM
+    }
+    
+    audioElement = new Audio(array.data[0].preview);
+    titol.innerHTML = array.data[0].title
+    artis.innerHTML = array.data[0].artist.name
+    img.src = array.data[0].album.cover_small
+    playPauseButton.click();
+    
+
+    audioElement.ontimeupdate = function() {timeupdate()};
+}
+
+let audioElement = new Audio('');
+let titol = document.getElementById('titolo')
+let artis = document.getElementById('artista')
+let img = document.getElementById('musicImglink')
 const playPauseButton = document.querySelector('.play-pause');
 const progressBar = document.querySelector('#progress-bar');
 const progress = document.querySelector('#progress');
 const volumeBar = document.querySelector('#volume-progress-bar');
 const volumeProgress = document.querySelector('#volume-progress');
+
 
 // Avvia o metti in pausa la riproduzione audio al clic del pulsante Play/Pausa
 playPauseButton.addEventListener('click', () => {
@@ -196,38 +241,52 @@ progressBar.addEventListener('click', (e) => {
     const progressWidth = progressBar.offsetWidth;
     const songPosition = clickX / progressWidth;
     audioElement.currentTime = songPosition * audioElement.duration;
+    // console.log(audioElement.currentTime)
 });
 
 // Aggiorna il volume quando l'utente interagisce con la barra del volume
+// volumeBar.addEventListener('click', (e) => {
+//     const clickX = e.clientX - volumeBar.getBoundingClientRect().left;
+//     const volumeWidth = volumeBar.offsetWidth;
+//     const volume = clickX / volumeWidth;
+//     audioElement.volume = volume;
+// });
+
 volumeBar.addEventListener('click', (e) => {
+    console.log('Volume bar clicked');
     const clickX = e.clientX - volumeBar.getBoundingClientRect().left;
     const volumeWidth = volumeBar.offsetWidth;
+    console.log('clickX:', clickX);
+    console.log('volumeWidth:', volumeWidth);
     const volume = clickX / volumeWidth;
+    console.log('Volume:', volume);
     audioElement.volume = volume;
+    console.log('Audio volume set to:', volume);
+    
+    const volumeWi = audioElement.volume * 100;
+    volumeProgress.style.width = `${volumeWi}%`;
 });
 
 // Aggiorna la barra di avanzamento della canzone e del volume
-audioElement.addEventListener('timeupdate', () => {
+// audioElement.ontimeupdate = function() {timeupdate()};
+
+function timeupdate(){
     const currentTime = formatTime(audioElement.currentTime);
     const duration = formatTime(audioElement.duration);
     const progressWidth = (audioElement.currentTime / audioElement.duration) * 100;
     const volumeWidth = audioElement.volume * 100;
 
-    document.getElementById('current-time').textContent = currentTime;
-    document.getElementById('duration').textContent = duration;
+    const timecurrent = document.getElementById('current-time');
+    timecurrent.textContent = currentTime;
+    const durat = document.getElementById('duration')
+    durat.textContent = duration;
     progress.style.width = `${progressWidth}%`;
     volumeProgress.style.width = `${volumeWidth}%`;
-});
-
-// Aggiorna la barra del volume quando cambia il volume
-audioElement.addEventListener('volumechange', () => {
-    const volumeWidth = audioElement.volume * 100;
-    volumeProgress.style.width = `${volumeWidth}%`;
-});
-
+}
 // Funzione per formattare il tempo in formato mm:ss
 function formatTime(time) {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
+
