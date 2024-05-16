@@ -149,30 +149,25 @@ function formatTime(time) {
 
 window.onload = () => {
   getDominantImageColor = (imageUrl) => {
-      // Ottieni l'immagine
+
       let sourceImage = new Image();
       sourceImage.crossOrigin = "Anonymous"; // Consentire il recupero dei dati dall'immagine
       sourceImage.src = imageUrl;
 
-      // Inizializza ColorThief
       let colorThief = new ColorThief();
 
-      // Quando l'immagine è stata caricata correttamente
       sourceImage.onload = function() {
           console.log("Immagine caricata correttamente:", sourceImage.src);
 
-          // Ottieni il colore dominante
           let color = colorThief.getColor(sourceImage);
           console.log("Colore dominante:", color);
 
-          // Genera il gradiente di colore
           let gradientColors = generateGradientColors(color);
 
-          // Imposta il gradiente come sfondo dell'elemento desiderato
           let background = document.querySelector(".background_color_gradient");
           background.style.background = `linear-gradient(to bottom, ${gradientColors.join(", ")})`;
-          background.style.position = "relative"; // Imposta il posizionamento relativo
-          background.style.overflow = "visible"; // Consente al colore di estendersi oltre i limiti del div
+          background.style.position = "relative";
+          background.style.overflow = "visible";
           console.log("Gradiente di colore impostato:", background.style.background);
       };
 
@@ -187,14 +182,11 @@ window.onload = () => {
 function generateGradientColors(baseColor) {
   let gradientColors = [];
 
-  // Aggiungi il colore dominante
   gradientColors.push(`rgb(${baseColor[0]}, ${baseColor[1]}, ${baseColor[2]})`);
 
-  // Aggiungi un colore più scuro
   let darkerColor = baseColor.map(c => Math.max(0, c - 50));
   gradientColors.push(`rgb(${darkerColor[0]}, ${darkerColor[1]}, ${darkerColor[2]})`);
 
-  // Aggiungi il nero
   gradientColors.push('rgb(24, 24, 24)');
 
   return gradientColors;
