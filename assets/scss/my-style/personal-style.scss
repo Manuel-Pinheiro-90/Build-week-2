@@ -315,7 +315,28 @@ footer i:hover{
 }
 
 #sfondo_immagine {
-    background-size: cover;
-    //background-position: center;
-    background-repeat: no-repeat ;
+   
 }
+
+.sfondo-img{  background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat ;
+    
+   
+    
+}
+
+.overlay {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+  }
+
+  .testo {
+    position: relative; 
+    z-index: 1;}
+
+.heigth{height: 50vh!important;}
