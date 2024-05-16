@@ -74,9 +74,15 @@
   font-size: 2.5em !important;
 }
 
+#grandezza_div {
+    width: 50px !important;
+}
+
 .title-container {
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    text-overflow: clip;
+    text-wrap: nowrap;
+    
+    
 }
 
 // User Logo
