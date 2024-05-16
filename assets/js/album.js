@@ -22,17 +22,31 @@ const generateSongListCards = function (songArray) {
 
   const row4 = document.getElementById("title_album");
   const newCol4 = document.createElement("div");
-  newCol4.classList.add("col-md-4");
+  newCol4.classList.add("row");
   newCol4.innerHTML = `
-                <img src="${songArray.cover_xl}" class="card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">${songArray.title}</h5>
-                  <p class="card-text fs-6"><img src="${songArray.artist.picture_small}" class="card-img" style= "width: 20px"alt="..."> ${songArray.artist.name} ${songArray.release_date} ${num} ${songArray.duration}</p>
+           <div class="col-md-12 bg-transparent">
+            <div class="card mb-3 bg-transparent border-0">
+                <div class="row no-gutters bg-transparent">
+                    <div class="col-md-4">
+                        <img src="${songArray.cover_xl}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8 bg-transparent">
+                        <div class="card-body bg-transparent">
+                            <h5 class="card-title fa-3x text-white">${songArray.title}</h5>
+                            <p class="card-text fs-6 text-white">
+                                <img src="${songArray.artist.picture_small}" class="card-img" style="width: 20px" alt="...">
+                                ${songArray.artist.name} ${songArray.release_date} ${num} ${songArray.duration}
+                            </p>
+                        </div>
+                    </div>
                 </div>
-        `;
+            </div>
+        </div>
+    `;
   row4.appendChild(newCol4);
+  
+  // Chiamata alla funzione per ottenere il colore dominante dall'immagine
+  getDominantImageColor(songArray.cover_xl);
 };
 
 const getSongList = function () {
@@ -131,4 +145,57 @@ function formatTime(time) {
   const minutes = Math.floor(time / 60);
   const seconds = Math.floor(time % 60);
   return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+}
+
+window.onload = () => {
+  getDominantImageColor = (imageUrl) => {
+      // Ottieni l'immagine
+      let sourceImage = new Image();
+      sourceImage.crossOrigin = "Anonymous"; // Consentire il recupero dei dati dall'immagine
+      sourceImage.src = imageUrl;
+
+      // Inizializza ColorThief
+      let colorThief = new ColorThief();
+
+      // Quando l'immagine è stata caricata correttamente
+      sourceImage.onload = function() {
+          console.log("Immagine caricata correttamente:", sourceImage.src);
+
+          // Ottieni il colore dominante
+          let color = colorThief.getColor(sourceImage);
+          console.log("Colore dominante:", color);
+
+          // Genera il gradiente di colore
+          let gradientColors = generateGradientColors(color);
+
+          // Imposta il gradiente come sfondo dell'elemento desiderato
+          let background = document.querySelector(".background_color_gradient");
+          background.style.background = `linear-gradient(to bottom, ${gradientColors.join(", ")})`;
+          background.style.position = "relative"; // Imposta il posizionamento relativo
+          background.style.overflow = "visible"; // Consente al colore di estendersi oltre i limiti del div
+          console.log("Gradiente di colore impostato:", background.style.background);
+      };
+
+      // Gestione degli errori di caricamento dell'immagine
+      sourceImage.onerror = function() {
+          console.error("Errore durante il caricamento dell'immagine:", sourceImage.src);
+      };
+  }
+}
+
+// Funzione per generare il gradiente di colore
+function generateGradientColors(baseColor) {
+  let gradientColors = [];
+
+  // Aggiungi il colore dominante
+  gradientColors.push(`rgb(${baseColor[0]}, ${baseColor[1]}, ${baseColor[2]})`);
+
+  // Aggiungi un colore più scuro
+  let darkerColor = baseColor.map(c => Math.max(0, c - 50));
+  gradientColors.push(`rgb(${darkerColor[0]}, ${darkerColor[1]}, ${darkerColor[2]})`);
+
+  // Aggiungi il nero
+  gradientColors.push('rgb(24, 24, 24)');
+
+  return gradientColors;
 }

@@ -117,14 +117,15 @@
           </div>
         </nav>
         <!---------- MAIN ----------------------------------------------------------------------------->
-        <main class="col-12 col-md-7 mt-4">
-          <div class="card mb-3">
-            <div class="row" id="title_album"></div>
+        <main class="col-12 col-md-7 p-0">
+          <div class="background_color_gradient">
+          <div class="card mb-3 bg-transparent border-0 px-3 py-3">
+            <div class="row border-0" id="title_album"></div>
           </div>
 
           <div class="d-flex align-items-center">
             <div>
-              <i class="bi bi-play-circle-fill fa-4x text-success me-3"></i>
+              <i class="bi bi-play-circle-fill fa-4x text-success ms-3 me-3"></i>
             </div>
             <div><i class="bi bi-suit-heart fa-2x text-white-50 me-3"></i></div>
             <div>
@@ -132,6 +133,7 @@
             </div>
             <div><i class="bi bi-three-dots fa-2x text-white-50 me-3"></i></div>
           </div>
+        </div>
           <!----------song list----------------------------------------------------------------------------->
           <div class="container">
             <table class="table table-borderless">
@@ -296,5 +298,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./assets/js/album.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
   </body>
 </html>
