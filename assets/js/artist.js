@@ -51,7 +51,7 @@ const generateSongListCards = function (songsArray) {
     artistCol.innerHTML = `
          <th class="bg-transparent text-white-50 align-middle" scope="row">${num}</th>
          <td class="bg-transparent text-white-50 align-middle w-25"><img src="${song.album.cover}" alt="" class="w-50"></td>
-         <td class="bg-transparent text-white align-middle">${song.title}</td>
+         <td class="bg-transparent  align-middle"> <a href="#" class="text-decoration-none text-white"> ${song.title}</a></td>
          <td class="bg-transparent text-white-50 align-middle">${song.rank}</td>
          <td class="bg-transparent text-white-50 align-middle">${song.duration}</td>`;
 
