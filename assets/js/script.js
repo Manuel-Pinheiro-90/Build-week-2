@@ -110,7 +110,7 @@ const generateArtistCards = function (artist) {
                   </div>
                   <div class="col-md-8 d-flex">
                     <div class="card-body d-flex flex-column">
-                      <h1 class="card-title text-light fs-tile">${artist.data[0].album.title}</h1>
+                      <h1 class="card-title text-light">${artist.data[0].album.title}</h1>
                       <p class="card-text text-light">
                         ${artist.data[0].artist.name}
                       </p>
