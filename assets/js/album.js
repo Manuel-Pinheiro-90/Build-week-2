@@ -11,10 +11,11 @@ const generateSongListCards = function (songArray) {
     num++;
     const songCol = document.createElement("tr");
     songCol.innerHTML = `
-        <th scope="row">${num}</th>
-        <td>${song.title}</td>
-        <td>${song.rank}</td>
-        <td>${song.duration}</td>
+        <th class="align-middle bg-transparent text-white-50" scope="row">${num}</th>
+        <td class="d-flex flex-column bg-transparent">
+        <p class="my-2 p-0 font-weight-bold text-white">${song.title}</p><p class="m-0 p-0 text-white-50">${song.title}<p></td>
+        <td class="align-middle bg-transparent text-white-50 text-center">${song.rank}</td>
+        <td class="align-middle bg-transparent text-white-50 text-end">${song.duration}</td>
         `;
     songrow.appendChild(songCol);
   });
@@ -28,7 +29,7 @@ const generateSongListCards = function (songArray) {
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">${songArray.title}</h5>
-                  <p class="card-text"><img src="${songArray.artist.picture_small}" class="card-img" alt="..."> ${songArray.artist.name} ${songArray.release_date} ${num} ${songArray.duration}</p>
+                  <p class="card-text fs-6"><img src="${songArray.artist.picture_small}" class="card-img" style= "width: 20px"alt="..."> ${songArray.artist.name} ${songArray.release_date} ${num} ${songArray.duration}</p>
                 </div>
         `;
   row4.appendChild(newCol4);

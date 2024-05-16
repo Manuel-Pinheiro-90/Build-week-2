@@ -119,27 +119,28 @@
         <!---------- MAIN ----------------------------------------------------------------------------->
         <main class="col-12 col-md-7 mt-4">
           <div class="card mb-3">
-            <div class="row no-gutters" id="title_album"></div>
+            <div class="row" id="title_album"></div>
           </div>
-          <div>
+
+          <div class="d-flex align-items-center">
             <div>
-              <i class="bi bi-play-circle-fill fa-3x text-white-50"></i>
+              <i class="bi bi-play-circle-fill fa-4x text-success me-3"></i>
             </div>
-            <div><i class="bi bi-suit-heart fa-3x text-white-50"></i></div>
+            <div><i class="bi bi-suit-heart fa-2x text-white-50 me-3"></i></div>
             <div>
-              <i class="bi bi-arrow-down-circle fa-3x text-white-50"></i>
+              <i class="bi bi-arrow-down-circle fa-2x text-white-50 me-3"></i>
             </div>
-            <div><i class="bi bi-three-dots fa-3x text-white-50"></i></div>
+            <div><i class="bi bi-three-dots fa-2x text-white-50 me-3"></i></div>
           </div>
           <!----------song list----------------------------------------------------------------------------->
           <div class="container">
-            <table class="table">
+            <table class="table table-borderless">
               <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Titolo</th>
-                  <th>Riproduzioni</th>
-                  <th>Durata</th>
+                <tr class="border-bottom border-secondary">
+                  <th class="bg-transparent text-white-50">#</th>
+                  <th class="bg-transparent text-white-50">Titolo</th>
+                  <th class="bg-transparent text-white-50">Riproduzioni</th>
+                  <th class="bg-transparent text-white-50 text-end"><i class="bi bi-clock"></i></th>
                 </tr>
               </thead>
               <tbody id="songs-list"></tbody>
