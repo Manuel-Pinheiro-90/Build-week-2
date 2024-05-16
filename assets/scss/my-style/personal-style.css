@@ -40,7 +40,7 @@
 /* PARAGRAFI DELLA PLAYLIST */
 .playlist-sel p:hover {
   color: white !important;
-  background-color: #2D2D2D !important;
+  background-color: #2d2d2d !important;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -71,6 +71,13 @@
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+}
+
+.title-container {
+  max-width: 100%;
+  display: block;
 }
 
 .logouser {
@@ -118,7 +125,7 @@
 
 /* PERSONALIZZAZIONE CARDS BUONASERA */
 .bg-card-personal {
-  background-color: #2D2D2D !important;
+  background-color: #2d2d2d !important;
 }
 
 .bg-card-personal:hover {
@@ -134,7 +141,7 @@
 
 /* PERSONALIZZAZIONE CARDS ALTRO CHE TI PIACE */
 .card-personal {
-  background-color: #2D2D2D !important;
+  background-color: #2d2d2d !important;
   border-radius: 0.3rem !important;
   padding: 1rem !important;
   position: relative;
@@ -339,10 +346,26 @@ footer i:hover {
 }
 
 .volume-bar .progress-bar:hover .progress::after {
-  --size: .8em;
+  --size: 0.8em;
+}
+
+/* PERSONALIZZAZIONE ASIDE */
+.aside-personal h6:hover {
+  text-decoration: underline !important;
+  cursor: pointer !important;
+  color: white !important;
+  transition: 0.2s;
+}
+
+.icon-personal:hover {
+  color: white !important;
+  cursor: pointer !important;
+  transition: 0.3s;
 }
 
 #sfondo_immagine {
   background-size: cover;
   background-repeat: no-repeat;
-}/*# sourceMappingURL=personal-style.css.map */
+}
+
+/* MEDIA QUERY ICONE PLAYER *//*# sourceMappingURL=personal-style.css.map */
