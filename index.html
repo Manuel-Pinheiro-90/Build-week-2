@@ -14,7 +14,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="personal-bg">
+<body class="personal-bg h-100">
   <div class="container-fluid">
     <div class="row">
       <nav class="col-3 d-none d-md-block sidebar bg-black">
@@ -106,7 +106,7 @@
           </div>
         </div>
       </nav>
-      <main class="col-12   col-md-7 mt-4">
+      <main class="col-12   col-md-7 mt-4 h-100 overflow-y-auto">
         <!-- CAROSELLO CON CARDS -->
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
           <div class="d-flex justify-content-between">
@@ -251,7 +251,7 @@
           </section>
       </main>
       <!----------Sidebar------------------------------------------------------------------------------>
-      <aside class="col d-none  col-md-2  d-md-block      bg-black">
+      <aside class="col d-none col-md-2 d-md-block bg-black">
         <div id="side" class="mt-3">
           <div class="d-flex justify-content-between align-items-center" id="friends">
             <div>
@@ -321,7 +321,7 @@
   <!-------------------------------------------------Player---------------------------------------------------------------------->
   <footer class="fixed-bottom">
     <div class="music-player">
-      <div class="song-bar">
+      <div class="song-bar d-none" id="musician">
           <div class="song-infos">
               <div class="image-container">
                   <img src="" alt="" id="musicImglink" />
@@ -344,16 +344,16 @@
           <div class="control-buttons">
               <i class="fas fa-random"></i>
               <i class="fas fa-step-backward"></i>
-              <i class="play-pause fas fa-play"></i>
+              <i class="play-pause fas fa-play bg-success"></i>
               <i class="fas fa-step-forward"></i>
               <i class="fas fa-undo-alt"></i>
           </div>
           <div class="progress-container" id="progress-container">
-              <span id="current-time"></span>
+              <span id="current-time">0:00</span>
               <div class="progress-bar" id="progress-bar">
                   <div class="progress" id="progress"></div>
               </div>
-              <span id="duration"></span>
+              <span id="duration">0:00</span>
           </div>
       </div>
       <div class="other-features">
