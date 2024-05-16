@@ -67,6 +67,12 @@
   font-size: 3em !important;
 }
 
+.title-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .logouser {
   border: 0;
   display: flex;
