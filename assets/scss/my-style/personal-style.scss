@@ -67,7 +67,7 @@
 .personal-list a i:hover {
   color: white !important;
   transition: 0.3s;
-}   
+}
 
 /* CAROSELLO */
 .fs-title {
@@ -75,14 +75,12 @@
 }
 
 #grandezza_div {
-    width: 50px !important;
+  width: 50px !important;
 }
 
 .title-container {
-    text-overflow: clip;
-    text-wrap: nowrap;
-    
-    
+  text-overflow: clip;
+  text-wrap: nowrap;
 }
 
 // User Logo
@@ -347,28 +345,46 @@ footer i:hover {
   transition: 0.3s;
 }
 
-
-
-.sfondo-img{  background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat ;
-    
-       
+.sfondo-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .overlay {
-    position: absolute; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50vh;
-    background-color: rgba(0, 0, 0, 0.5); 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.testo {
+  position: relative;
+  z-index: 1;
+}
+
+.heigth {
+  height: 50vh !important;
+}
+
+.xin {
+  z-index: 5;
+}
+
+/* MEDIA QUERY PLAYER */
+@media screen and (max-width:768px){
+  .other-features{
+    display: none !important;
   }
 
-  .testo {
-    position: relative; 
-    z-index: 1;}
-
-.heigth{height: 50vh!important;}
-
-.xin{z-index: 5;}
+  .play-pause{
+    background-color: transparent !important;
+    color: white  !important;
+  }
+  .d-flex-personal{
+    display: flex !important;
+    justify-content: center !important;
+  }
+}

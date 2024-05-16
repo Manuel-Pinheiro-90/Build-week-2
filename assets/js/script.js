@@ -108,7 +108,7 @@ const generateArtistCards = function (artist) {
         `;
   row2.appendChild(newCol2);
 };
-
+/* CAROSELLO DINAMICO */
 const generateCarouselCards = function (artist) {
   if (carosel_number < 3) {
     carosel_number++;
@@ -127,7 +127,7 @@ const generateCarouselCards = function (artist) {
     card_carosel.innerHTML = `
     <div class="card mb-3 bg-dark bg-gradient">
     <div class="row g-0">
-                  <div class="col-md-4">
+                  <div class="col-md-4 d-flex-personal">
                     <img src="${artist.data[0].album.cover_medium}" class="img-fluid rounded-start"
                       alt="imgCopertina" />
                       </div>
