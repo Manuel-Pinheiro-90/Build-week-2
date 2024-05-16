@@ -128,8 +128,8 @@ const generateArtistCards = function (artist) {
                   </div>
                   <div class="col-md-8 d-flex">
                     <div class="card-body d-flex flex-column justify-content-evenly">
-                    <div class="title-container">
-                        <h1 class="card-title text-light fs-title title-ellipsis">${artist.data[0].album.title}</h1>
+                    <div>
+                        <h1 class="card-title text-light fs-title title-container">${artist.data[0].album.title}</h1>
                     </div>
                       <p class="card-text text-light">
                         ${artist.data[0].artist.name}

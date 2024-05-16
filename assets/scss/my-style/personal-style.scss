@@ -73,16 +73,12 @@
 .fs-title {
   font-size: 2.5em !important;
 }
-.title-ellipsis {
-  white-space: nowrap;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-  display: block;
-}
+// .title-ellipsis {
+
+// }
 .title-container {
-  max-width: 100%;
-  display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 // User Logo
