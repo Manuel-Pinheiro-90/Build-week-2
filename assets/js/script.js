@@ -133,7 +133,7 @@ const generateCarouselCards = function (artist) {
                       </div>
                       <div class="col-md-8 d-flex">
                       <div class="card-body d-flex flex-column">
-                      <h1 class="card-title text-light fs-title">${artist.data[0].title_short}</h1>
+                      <h1 class="card-title text-light fs-title text-nowrap text-truncate">${artist.data[0].title_short}</h1>
                       <p class="card-text text-light">
                       ${artist.data[0].artist.name}
                       </p>
@@ -307,3 +307,7 @@ function formatTime(time) {
   const seconds = Math.floor(time % 60);
   return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 }
+
+
+/* FUNZIONE PER PRENDERE IL VALORE INPUT */
+
