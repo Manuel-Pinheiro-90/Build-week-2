@@ -226,7 +226,8 @@ footer i:hover {
 .image-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .song-description p {
@@ -385,6 +386,10 @@ footer i:hover {
 
 .xin {
   z-index: 5;
+}
+
+.fs-title-due {
+  font-size: 5.5em !important;
 }
 
 /* MEDIA QUERY PLAYER */
