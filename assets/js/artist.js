@@ -47,13 +47,19 @@ const generateSongListCards = function (songsArray) {
   let num = 0;
   canzone.forEach((song) => {
     num++;
+
+    const minutes = Math.floor(song.duration / 60);
+    const seconds = song.duration % 60;
+    const formatDur = ` ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    const rankForm = song.rank.toLocaleString();
     const artistCol = document.createElement("tr");
+
     artistCol.innerHTML = `
          <th class="bg-transparent text-white-50 align-middle" scope="row">${num}</th>
          <td class="bg-transparent text-white-50 align-middle w-25"><img src="${song.album.cover}" alt="" class="w-50"></td>
          <td class="bg-transparent  align-middle"> <a href="#" class="text-decoration-none text-white"> ${song.title}</a></td>
-         <td class="bg-transparent text-white-50 align-middle">${song.rank}</td>
-         <td class="bg-transparent text-white-50 align-middle">${song.duration}</td>`;
+         <td class="bg-transparent text-white-50 align-middle"> Ascolti ${rankForm}</td>
+         <td class="bg-transparent text-white-50 align-middle"> Durata ${formatDur}</td>`;
 
     artistrow.appendChild(artistCol);
   });
