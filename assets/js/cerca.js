@@ -36,8 +36,10 @@ const funzione_cerca = (input) => {
         })
         .then((data) => {
             if (data.data && data.data.length > 0) {
-                let artistName = data.data[0].artist.name;
-                console.log("INPUT! INPUT", artistName);
+                let artistName = data.data[0].artist.id;
+                // console.log("INPUT! INPUT", artistName);
+                
+                window.open('artist.html?artistId='+artistName);
                 // Chiama una funzione con i dati, se necessario
                 // funzione(data);
             } else {
