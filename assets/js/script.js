@@ -311,10 +311,3 @@ function formatTime(time) {
 
 /* FUNZIONE PER PRENDERE IL VALORE INPUT */
 
-const inputSerch = document.getElementById('inputSearch')
-const buttonSend = document.getElementById('buttonSend')
-
-const functionInput = function () {
-  console.log(inputSerch.value)
-  inputSerch.value = ''
-}
