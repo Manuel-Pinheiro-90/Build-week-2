@@ -37,6 +37,11 @@
   font-size: 0.7rem;
 }
 
+/* FUNZIONE CERCA */
+.personal-button {
+  font-size: 0.6rem;
+}
+
 /* PARAGRAFI DELLA PLAYLIST */
 .playlist-sel p:hover {
   color: white !important;

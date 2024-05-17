@@ -307,3 +307,14 @@ function formatTime(time) {
   const seconds = Math.floor(time % 60);
   return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 }
+
+
+/* FUNZIONE PER PRENDERE IL VALORE INPUT */
+
+const inputSerch = document.getElementById('inputSearch')
+const buttonSend = document.getElementById('buttonSend')
+
+const functionInput = function () {
+  console.log(inputSerch.value)
+  inputSerch.value = ''
+}
