@@ -9,13 +9,17 @@ const generateSongListCards = function (songArray) {
   let num = 0;
   french.forEach((song) => {
     num++;
+    const minutes = Math.floor(song.duration / 60);
+    const seconds = song.duration % 60;
+    const durationFormatted = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    const rankFormatted = song.rank.toLocaleString();
     const songCol = document.createElement("tr");
     songCol.innerHTML = `
         <th class="align-middle bg-transparent text-white-50" scope="row">${num}</th>
         <td class="d-flex flex-column bg-transparent">
-        <p class="my-2 p-0 font-weight-bold text-white">${song.title}</p><p class="m-0 p-0 text-white-50">${song.title}<p></td>
-        <td class="align-middle bg-transparent text-white-50 text-center">${song.rank}</td>
-        <td class="align-middle bg-transparent text-white-50 text-end">${song.duration}</td>
+        <p class="my-2 p-0 font-weight-bold text-white">${song.title}</p><p class="m-0 p-0 text-white-50">${songArray.artist.name}<p></td>
+        <td class="align-middle bg-transparent text-white-50 text-center">${rankFormatted}</td>
+        <td class="align-middle bg-transparent text-white-50 text-end">${durationFormatted}</td>
         `;
     songrow.appendChild(songCol);
   });
@@ -23,19 +27,23 @@ const generateSongListCards = function (songArray) {
   const row4 = document.getElementById("title_album");
   const newCol4 = document.createElement("div");
   newCol4.classList.add("row");
+  const releaseYear = new Date(songArray.release_date).getFullYear();
+  const totalDurationMinutes = Math.floor(songArray.duration / 60);
+  const totalDurationSeconds = songArray.duration % 60;
+  const totalDurationFormatted = `${totalDurationMinutes} min ${totalDurationSeconds} sec.`;
   newCol4.innerHTML = `
            <div class="col-md-12 bg-transparent">
             <div class="card mb-3 bg-transparent border-0">
                 <div class="row no-gutters bg-transparent">
                     <div class="col-md-4">
-                        <img src="${songArray.cover_xl}" class="card-img" alt="...">
+                        <img src="${songArray.cover_xl}" class="card-img shadow-lg" alt="...">
                     </div>
-                    <div class="col-md-8 bg-transparent">
-                        <div class="card-body bg-transparent">
-                            <h5 class="card-title fa-3x text-white">${songArray.title}</h5>
+                    <div class="col-md-8 bg-transparent d-flex flex-column">
+                        <div class="card-body bg-transparent align-content-end">
+                            <h5 class="card-title fa-4x text-white text-nowrap text-truncate">${songArray.title}</h5>
                             <p class="card-text fs-6 text-white">
-                                <img src="${songArray.artist.picture_small}" class="card-img" style="width: 20px" alt="...">
-                                ${songArray.artist.name} ${songArray.release_date} ${num} ${songArray.duration}
+                                <img src="${songArray.artist.picture_small}" class="card-img rounded-circle" style="width: 30px" alt="...">
+                                ${songArray.artist.name} • ${releaseYear} • ${num} brani, <span class="text-white-50"> ${totalDurationFormatted}</span>
                             </p>
                         </div>
                     </div>
