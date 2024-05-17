@@ -2,19 +2,16 @@
 const inputSerch = document.getElementById('inputSearch')
 const buttonSend = document.getElementById('buttonSend')
 
-let input_name = inputSerch.value
 const functionInput = function () {
-    console.log(inputSerch.value)
-    funzione_cerca()
+    let input_name = inputSerch.value
+    funzione_cerca(input_name)
     inputSerch.value = ''
 }
 
 
 
-
-
-const funzione_cerca = () => {
-    fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${input_name}`)
+const funzione_cerca = (input) => {
+    fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${input}`)
         .then((response) => {
             if (response.ok) {
                 console.log(response);
