@@ -222,8 +222,10 @@ function autoStart(array) {
   artis.innerHTML = array.data[0].artist.name;
   img.src = array.data[0].album.cover_small;
   playPauseButton.click();
-  document.getElementById("musician").classList.remove("d-none");
+  if(screen.availWidth>576){
 
+    document.getElementById("musician").classList.remove("d-none");
+  }
   audioElement.ontimeupdate = function () {
     timeupdate();
   };

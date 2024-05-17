@@ -125,8 +125,10 @@ function autoStart(albumsong) {
   artis.innerHTML = albumsong.artist;
   img.src = albumsong.cover;
   playPauseButton.click();
-  document.getElementById("musician").classList.remove("d-none");
+  if(screen.availWidth>576){
 
+    document.getElementById("musician").classList.remove("d-none");
+  }
   audioElement.ontimeupdate = function () {
     timeupdate();
   };

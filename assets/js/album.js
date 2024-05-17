@@ -17,7 +17,7 @@ const generateSongListCards = function (songArray) {
     songCol.innerHTML = `
         <th class="align-middle bg-transparent text-white-50" scope="row">${num}</th>
         <td class="d-flex flex-column bg-transparent">
-        <p class="my-2 p-0 font-weight-bold text-white">${song.title}</p><p class="m-0 p-0 text-white-50">${songArray.artist.name}<p></td>
+        <p class="my-2 p-0 font-weight-bold text-white">${song.title}</p><p class="m-0 p-0 "><a href="artist.html?artistId=${songArray.artist.id}" class="card-text text-white-50"> ${songArray.artist.name}</a> </p></td>
         <td class="align-middle bg-transparent text-white-50 text-center">${rankFormatted}</td>
         <td class="align-middle bg-transparent text-white-50 text-end">${durationFormatted}</td>
         `;
@@ -55,7 +55,7 @@ const generateSongListCards = function (songArray) {
                             <h5 class="card-title fa-4x text-white text-nowrap text-truncate">${songArray.title}</h5>
                             <p class="card-text fs-6 text-white">
                                 <img src="${songArray.artist.picture_small}" class="card-img rounded-circle" style="width: 30px" alt="...">
-                                ${songArray.artist.name} • ${releaseYear} • ${num} brani, <span class="text-white-50"> ${totalDurationFormatted}</span>
+                                <a href="artist.html?artistId=${songArray.artist.id}" class="card-text link-personal"> ${songArray.artist.name}</a> • ${releaseYear} • ${num} brani, <span class="text-white-50"> ${totalDurationFormatted}</span>
                             </p>
                         </div>
                     </div>
@@ -119,8 +119,10 @@ function autoStart(albumsong) {
   artis.innerHTML = albumsong.artist;
   img.src = albumsong.cover;
   playPauseButton.click();
-  document.getElementById("musician").classList.remove("d-none");
+  if(screen.availWidth>576){
 
+    document.getElementById("musician").classList.remove("d-none");
+  }
   audioElement.ontimeupdate = function () {
     timeupdate();
   };
