@@ -48,7 +48,7 @@
                       Home
                     </a>
                   </li>
-                  <li class="nav-item d-flex align-items-center personal-list">
+                  <li class="nav-item d-flex align-items-center justify-content-between personal-list">
                     <a
                       class="nav-link text-white-50 fw-medium"
                       data-bs-toggle="collapse"
@@ -60,7 +60,10 @@
                       ><i class="bi bi-search text-white-50 me-1"></i> Cerca</a
                     >
                     <div class="collapse" id="collapseExample">
-                      <input type="text" />
+                      <div class="d-flex justify-content-between">
+                        <input class="text-bg-dark rounded-5 border-0" id="inputSearch" type="search">
+                        <button for="inputSearch" class="btn btn-success rounded-5 personal-button" id="buttonSend" type="button" onclick="functionInput()">INVIA</button>
+                      </div>
                     </div>
                   </li>
                   <li class="nav-item d-flex align-items-center personal-list">
@@ -506,5 +509,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./assets/js/artist.js"></script>
+    <script src="./assets/js/cerca.js"></script>
   </body>
 </html>
