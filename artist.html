@@ -48,7 +48,9 @@
                       Home
                     </a>
                   </li>
-                  <li class="nav-item d-flex align-items-center justify-content-between personal-list">
+                  <li
+                    class="nav-item d-flex align-items-center justify-content-between personal-list"
+                  >
                     <a
                       class="nav-link text-white-50 fw-medium"
                       data-bs-toggle="collapse"
@@ -61,8 +63,20 @@
                     >
                     <div class="collapse" id="collapseExample">
                       <div class="d-flex justify-content-between">
-                        <input class="text-bg-dark rounded-5 border-0" id="inputSearch" type="search">
-                        <button for="inputSearch" class="btn btn-success rounded-5 personal-button" id="buttonSend" type="button" onclick="functionInput()">INVIA</button>
+                        <input
+                          class="text-bg-dark rounded-5 border-0"
+                          id="inputSearch"
+                          type="search"
+                        />
+                        <button
+                          for="inputSearch"
+                          class="btn btn-success rounded-5 personal-button"
+                          id="buttonSend"
+                          type="button"
+                          onclick="functionInput()"
+                        >
+                          INVIA
+                        </button>
                       </div>
                     </div>
                   </li>
@@ -142,7 +156,7 @@
             <!-----bottoni------>
             <div class="overlay"></div>
             <div class="d-flex justify-content-between">
-              <div class="ms-3">
+              <div class="ms-3 d-none">
                 <button
                   type="button"
                   class="btn m-0 p-0 me-3"
@@ -170,7 +184,7 @@
               </div>
               <!-----drop------>
               <div>
-                <div class="dropdown">
+                <div class="dropdown d-none">
                   <button
                     class="logouser dropdown-toggle"
                     type="button"
