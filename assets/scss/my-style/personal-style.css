@@ -402,6 +402,9 @@ footer i:hover {
   .other-features {
     display: none !important;
   }
+  .song-bar {
+    display: none !important;
+  }
   .play-pause {
     background-color: transparent !important;
     color: white !important;

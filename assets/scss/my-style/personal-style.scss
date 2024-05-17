@@ -389,7 +389,12 @@ footer i:hover {
 @media screen and (max-width:768px){
   .other-features{
     display: none !important;
+  
+   
+  
   }
+
+  .song-bar{  display: none !important;}
 
   .play-pause{
     background-color: transparent !important;
