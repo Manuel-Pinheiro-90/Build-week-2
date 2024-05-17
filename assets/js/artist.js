@@ -1,7 +1,7 @@
 const get_codice_artist = new URLSearchParams(location.search);
 console.log(get_codice_artist);
 const artistId = get_codice_artist.get("artistId");
-
+const musiclinkarr = []
 const get_artist = () => {
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`)
     .then((response) => {
@@ -12,12 +12,12 @@ const get_artist = () => {
         if (response.status === 404) {
           throw new Error(
             "Errore nella risposta del server: Resource not found " +
-              response.status
+            response.status
           );
         } else if (response.status === 500) {
           throw new Error(
             "Errore nella risposta del server: Internal server error " +
-              response.status
+            response.status
           );
         } else {
           throw new Error(
@@ -55,6 +55,15 @@ const generateSongListCards = function (songsArray) {
          <td class="bg-transparent text-white-50 align-middle">${song.rank}</td>
          <td class="bg-transparent text-white-50 align-middle">${song.duration}</td>`;
 
+    let musica = {
+      title: song.title,
+      artist: song.artist.name,
+      cover: song.album.cover_small,
+      preview: song.preview
+    }
+
+    musiclinkarr.push(musica)
+
     artistrow.appendChild(artistCol);
   });
 };
@@ -71,12 +80,12 @@ const getArtistList = function () {
         if (response.status === 404) {
           throw new Error(
             "Errore nella risposta del server: Resource not found " +
-              response.status
+            response.status
           );
         } else if (response.status === 500) {
           throw new Error(
             "Errore nella risposta del server: Internal server error " +
-              response.status
+            response.status
           );
         } else {
           throw new Error(
@@ -96,12 +105,62 @@ const getArtistList = function () {
 };
 getArtistList();
 
-const audioElement = new Audio("./assets/js/VideoGames.mp3");
+
+let volume = 0.1;
+function autoStart(albumsong) {
+  audioElement.volume = volume
+  if (audioElement) {
+    audioElement.pause(); // Pause the current audio
+    audioElement.remove(); // Remove the audio element from the DOM
+  }
+  console.log(albumsong);
+  audioElement = new Audio(albumsong.preview);
+  titol.innerHTML = albumsong.title;
+  artis.innerHTML = albumsong.artist;
+  img.src = albumsong.cover;
+  playPauseButton.click();
+  document.getElementById("musician").classList.remove("d-none");
+
+  audioElement.ontimeupdate = function () {
+    timeupdate();
+  };
+}
+
+
+
+
+
+let audioElement = new Audio("");
+let titol = document.getElementById("titolo");
+let artis = document.getElementById("artista");
+let img = document.getElementById("musicImglink");
 const playPauseButton = document.querySelector(".play-pause");
 const progressBar = document.querySelector("#progress-bar");
 const progress = document.querySelector("#progress");
 const volumeBar = document.querySelector("#volume-progress-bar");
 const volumeProgress = document.querySelector("#volume-progress");
+const playalbum = document.getElementById("playalbum");
+const forward = document.getElementById("forward")
+const backward = document.getElementById("backward")
+
+
+let playlistposition = 0;
+playalbum.addEventListener('click', () => {
+  playlistposition = 0;
+  audioElement.volume = volume;
+  autoStart(musiclinkarr[0]);
+
+});
+forward.addEventListener('click', () => {
+  playlistposition++;
+  autoStart(musiclinkarr[playlistposition]);
+});
+backward.addEventListener('click', () => {
+  playlistposition--;
+  autoStart(musiclinkarr[playlistposition]);
+});
+
+
 
 // Avvia o metti in pausa la riproduzione audio al clic del pulsante Play/Pausa
 playPauseButton.addEventListener("click", () => {
@@ -122,36 +181,50 @@ progressBar.addEventListener("click", (e) => {
   const progressWidth = progressBar.offsetWidth;
   const songPosition = clickX / progressWidth;
   audioElement.currentTime = songPosition * audioElement.duration;
+  // console.log(audioElement.currentTime)
 });
 
 // Aggiorna il volume quando l'utente interagisce con la barra del volume
+// volumeBar.addEventListener('click', (e) => {
+//     const clickX = e.clientX - volumeBar.getBoundingClientRect().left;
+//     const volumeWidth = volumeBar.offsetWidth;
+//     const volume = clickX / volumeWidth;
+//     audioElement.volume = volume;
+// });
+
 volumeBar.addEventListener("click", (e) => {
+  console.log("Volume bar clicked");
   const clickX = e.clientX - volumeBar.getBoundingClientRect().left;
   const volumeWidth = volumeBar.offsetWidth;
-  const volume = clickX / volumeWidth;
+  console.log("clickX:", clickX);
+  console.log("volumeWidth:", volumeWidth);
+  volume = clickX / volumeWidth;
+  console.log("Volume:", volume);
   audioElement.volume = volume;
+  console.log("Audio volume set to:", volume);
+
+  const volumeWi = audioElement.volume * 100;
+  volumeProgress.style.width = `${volumeWi}%`;
 });
 
 // Aggiorna la barra di avanzamento della canzone e del volume
-audioElement.addEventListener("timeupdate", () => {
+// audioElement.ontimeupdate = function() {timeupdate()};
+
+function timeupdate() {
   const currentTime = formatTime(audioElement.currentTime);
   const duration = formatTime(audioElement.duration);
+  audioElement.volume = volume
   const progressWidth =
     (audioElement.currentTime / audioElement.duration) * 100;
-  const volumeWidth = audioElement.volume * 100;
+  volumeWidth = audioElement.volume * 100;
 
-  document.getElementById("current-time").textContent = currentTime;
-  document.getElementById("duration").textContent = duration;
+  const timecurrent = document.getElementById("current-time");
+  timecurrent.textContent = currentTime;
+  const durat = document.getElementById("duration");
+  durat.textContent = duration;
   progress.style.width = `${progressWidth}%`;
   volumeProgress.style.width = `${volumeWidth}%`;
-});
-
-// Aggiorna la barra del volume quando cambia il volume
-audioElement.addEventListener("volumechange", () => {
-  const volumeWidth = audioElement.volume * 100;
-  volumeProgress.style.width = `${volumeWidth}%`;
-});
-
+}
 // Funzione per formattare il tempo in formato mm:ss
 function formatTime(time) {
   const minutes = Math.floor(time / 60);
