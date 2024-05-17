@@ -160,16 +160,18 @@ playalbum.addEventListener('click', () => {
 
 });
 forward.addEventListener('click', () => {
-  playlistposition++;
-  autoStart(musiclinkarr[playlistposition]);
+  if(playlistposition<musiclinkarr.length){
+    playlistposition++;
+    autoStart(musiclinkarr[playlistposition]);
+  }
 });
 backward.addEventListener('click', () => {
-  playlistposition--;
-  autoStart(musiclinkarr[playlistposition]);
+  if(playlistposition>0){
+    playlistposition--;
+    autoStart(musiclinkarr[playlistposition]);
+
+  }
 });
-
-
-
 // Avvia o metti in pausa la riproduzione audio al clic del pulsante Play/Pausa
 playPauseButton.addEventListener("click", () => {
   if (audioElement.paused) {
